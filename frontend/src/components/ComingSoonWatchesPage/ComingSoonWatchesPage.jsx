@@ -36,6 +36,8 @@ const watches = [
 // Use the format function from styles
 const formatINR = comingSoonStyles.formatINR;
 
+›
+
 
                 <div className={comingSoonStyles.imageContainer}>
                   <img
