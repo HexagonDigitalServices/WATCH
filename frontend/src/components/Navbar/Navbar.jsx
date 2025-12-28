@@ -4,18 +4,6 @@ const navItems = [
   { name: "Contact", href: "/contact" },
 ];
 
-
-  const [loggedIn, setLoggedIn] = useState(() => {
-    try {
-      return (
-        localStorage.getItem("isLoggedIn") === "true" ||
-        !!localStorage.getItem("authToken")
-      );
-    } catch {
-      return false;
-    }
-  });
-
   useEffect(() => {
     const onStorage = (e) => {
       if (e.key === "isLoggedIn" || e.key === "authToken") {
