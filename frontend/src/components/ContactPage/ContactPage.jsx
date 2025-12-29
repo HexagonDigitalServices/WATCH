@@ -45,17 +45,6 @@ export default function ContactPage() {
     return e;
   }
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setForm((s) => ({ ...s, [name]: value }));
-    setErrors((s) => ({ ...s, [name]: undefined }));
-  }
-
-  function clearForm() {
-    setForm(initialForm);
-    setErrors({});
-  }
-
   function handleSubmit(ev) {
     ev.preventDefault();
     const e = validate();
@@ -90,9 +79,6 @@ export default function ContactPage() {
       showToast("Submitted — form cleared", "success", 1600);
     }, 700);
   }
-
-  return (
-
 
       {/* toast */}
       {toast && (
