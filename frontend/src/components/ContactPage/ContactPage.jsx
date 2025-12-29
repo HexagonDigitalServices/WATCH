@@ -80,6 +80,18 @@ export default function ContactPage() {
     }, 700);
   }
 
+     ctaText="Book Visit"
+                ctaOnClick={() => {
+                  const msg = `Hi, I'd like to book a private showroom visit.`;
+                  window.open(
+                    `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(
+                      msg
+                    )}`,
+                    "_blank"
+                  );
+                }}
+                accent="amber"
+  
       {/* toast */}
       {toast && (
         <div
