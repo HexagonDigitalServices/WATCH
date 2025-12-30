@@ -45,17 +45,6 @@ export default function ContactPage() {
     return e;
   }
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setForm((s) => ({ ...s, [name]: value }));
-    setErrors((s) => ({ ...s, [name]: undefined }));
-  }
-
-  function clearForm() {
-    setForm(initialForm);
-    setErrors({});
-  }
-
   function handleSubmit(ev) {
     ev.preventDefault();
     const e = validate();
@@ -91,9 +80,18 @@ export default function ContactPage() {
     }, 700);
   }
 
-  return (
-
-
+     ctaText="Book Visit"
+                ctaOnClick={() => {
+                  const msg = `Hi, I'd like to book a private showroom visit.`;
+                  window.open(
+                    `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(
+                      msg
+                    )}`,
+                    "_blank"
+                  );
+                }}
+                accent="amber"
+  
       {/* toast */}
       {toast && (
         <div
