@@ -138,4 +138,40 @@ export default function CartPage() {
                   </div>
                 ))}
               </div>
+
+
+    {/* Right column */}
+            <div className={cartPageStyles.orderSummaryContainer}>
+              <h2 className={cartPageStyles.orderSummaryTitle}>
+                Order Summary
+              </h2>
+
+              <div className={cartPageStyles.orderSummaryContent}>
+                <div className={cartPageStyles.summaryRow}>
+                  <span className={cartPageStyles.summaryLabel}>
+                    Subtotal ({totalItems} items)
+                  </span>
+                  <span className={cartPageStyles.summaryValue}>
+                    ₹{totalPrice.toFixed(2)}
+                  </span>
+                </div>
+
+                <div className={cartPageStyles.summaryRow}>
+                  <span className={cartPageStyles.summaryLabel}>Shipping</span>
+                  <span className={cartPageStyles.summaryValue}>Free</span>
+                </div>
+
+                <div className={cartPageStyles.summaryRow}>
+                  <span className={cartPageStyles.summaryLabel}>Tax (8%)</span>
+                  <span className={cartPageStyles.summaryValue}>
+                    ₹{(totalPrice * 0.08).toFixed(2)}
+                  </span>
+                </div>
+              </div>
+
+              <div className={cartPageStyles.totalContainer}>
+                <span>Total</span>
+                <span>₹{(totalPrice * 1.08).toFixed(2)}</span>
+              </div>
+            </div>
    
