@@ -1,15 +1,3 @@
-
-// create watch
-    const doc = new Watch({
-      _id: new mongoose.Types.ObjectId(),
-      name,
-      description,
-      price,
-      category,
-      brandName,
-      image,
-    });
-
 // getWatches
     if (typeof category === "string") {
       const cat = category.trim().toLowerCase();
