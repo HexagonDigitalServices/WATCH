@@ -44,3 +44,13 @@ export async function getCart(req, res) {
     return res.status(500).json({ success: false, message: "Error retrieving cart", error: error.message });
   }
 }
+
+
+    const idx = cart.items.findIndex((it) => String(it.productId) === String(productId));
+    if (idx === -1) return res.status(404).json({ success: false, message: "Item not found in cart." });
+
+    if (quantity === 0) cart.items.splice(idx, 1);
+    else cart.items[idx].qty = quantity;
+
+
+
