@@ -136,6 +136,7 @@ export const createOrder = async (req, res, next) => {
         { "items.name": regex },
       ];
     }
+    const orders = await Order.find(filter).sort({ createdAt: -1 }).lean();
 
     const counts = orders.reduce(
       (acc, o) => {
