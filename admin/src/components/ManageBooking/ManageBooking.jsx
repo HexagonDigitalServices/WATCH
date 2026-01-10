@@ -141,6 +141,99 @@ axiosInstance.interceptors.request.use((cfg) => {
                   <option value="Completed">Completed</option>
                   <option value="Cancelled">Cancelled</option>
 
+      
+                      <div className={bookingStyles.actionButtonGroup}>
+                        <select
+                          value={b.status}
+                          onChange={(e) => updateStatus(b.id, e.target.value)}
+                          disabled={isCancelled}
+                          title={
+                            isCancelled
+                              ? "Cannot update status of a cancelled booking"
+                              : "Change booking status"
+                          }
+                          className={`${bookingStyles.statusSelect} ${
+                            isCancelled
+                              ? bookingStyles.statusSelectDisabled
+                              : bookingStyles.statusSelectEnabled
+                          }`}
+                        >
+                          <option value="Pending">Pending</option>
+                          <option value="Confirmed">Confirmed</option>
+                          <option value="Completed">Completed</option>
+                          <option value="Cancelled">Cancelled</option>
+                        </select>
+
+                        <button
+                          onClick={() => deleteBooking(b.id)}
+                          className={bookingStyles.deleteButton}
+                          title="Delete booking"
+                        >
+                          <Trash2 className={bookingStyles.deleteIcon} />
+                        </button>
+
+                        <button
+                          onClick={() => toggle(b.id)}
+                          className={bookingStyles.toggleButton}
+                        >
+                          {expanded.includes(b.id)
+                            ? "Hide Details"
+                            : "View Details"}
+                        </button>
+                      </div>
+
+                    {expanded.includes(b.id) && (
+                    <div className={bookingStyles.expandedContainer}>
+                      <div>
+                        <h4 className={bookingStyles.sectionTitle}>
+                          <User className={bookingStyles.sectionIcon} /> Customer Details
+                        </h4>
+                        <InfoRow
+                          icon={<Phone className="w-4 h-4" />}
+                          label="Phone"
+                          value={b.phone}
+                        />
+                        <InfoRow
+                          icon={<MapPin className="w-4 h-4" />}
+                          label="Address"
+                          value={b.address}
+                        />
+                        <InfoRow
+                          icon={<Calendar className="w-4 h-4" />}
+                          label="Booking Date"
+                          value={b.date}
+                        />
+                        <div className={bookingStyles.paymentBadgeContainer}>
+                          <div className={bookingStyles.paymentBadgeIconContainer}>
+                            <CreditCard className={bookingStyles.paymentBadgeIcon} />
+                          </div>
+                          <div className="text-sm">
+                            <div className={bookingStyles.paymentBadgeLabel}>Payment Status</div>
+                            <div className={bookingStyles.infoRowValue}>
+                              <PaymentBadge status={b.paymentStatus} />
+                            </div>
+                          </div>
+                        </div>
+                        <InfoRow
+                          icon={<Calendar className="w-4 h-4" />}
+                          label="Order ID"
+                          value={b.orderId}
+                        />
+                        {b.notes && (
+                          <div className="flex items-start gap-3">
+                            <div className={bookingStyles.infoRowIcon}>
+                              <MessageSquare className={bookingStyles.sectionIcon} />
+                            </div>
+                            <div className="text-sm flex-1 break-words">
+                              <div className={bookingStyles.infoRowLabel}>Notes</div>
+                              <div className={bookingStyles.infoRowValue}>
+                                {b.notes}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
                       <div>
                         <h4 className={bookingStyles.sectionTitle}>
                           <Watch className={bookingStyles.sectionIcon} /> Watch Details
@@ -223,3 +316,5 @@ axiosInstance.interceptors.request.use((cfg) => {
                           </div>
                         </div>
                       </div>
+                    </div>
+                  )}
