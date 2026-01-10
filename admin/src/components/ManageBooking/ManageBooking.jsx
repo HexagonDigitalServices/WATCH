@@ -135,6 +135,12 @@ axiosInstance.interceptors.request.use((cfg) => {
     );
   };
 
+    <option value="All">All Status</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Confirmed">Confirmed</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Cancelled">Cancelled</option>
+
                       <div>
                         <h4 className={bookingStyles.sectionTitle}>
                           <Watch className={bookingStyles.sectionIcon} /> Watch Details
