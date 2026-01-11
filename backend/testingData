@@ -1,0 +1,16 @@
+//  DUMMY DATA FOR WATCH CREATION
+ {
+    "name": "Atlas Classic",
+    "description": "Timeless stainless steel analog watch with leather strap.",
+    "price": 129.99,
+    "category": "men",
+    "brandName": "Atlas",
+    "image": "https://picsum.photos/seed/watch1/600/600"
+  }
+
+//   DUMMY DATA FOR USER
+{
+    "name" : "AnyName",
+    "email": "any@gmail.com",
+    "password": "123123123"
+}
